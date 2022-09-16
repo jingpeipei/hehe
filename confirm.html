@@ -2,12 +2,13 @@
  * @Author: jingpeipei jingpeipei@kingsoft.com
  * @Date: 2022-09-16 21:04:16
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-09-16 22:20:15
+ * @LastEditTime: 2022-09-16 22:34:36
  * @FilePath: /insight-bx-vue/Users/jingpeipei/Desktop/confirm.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <!--优先使用IE最新版本和Chrome-->
@@ -26,7 +27,7 @@
     * {
       margin: 0;
       padding: 0;
-      font-family: Microsoft YaHei,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,SimSun,sans-serif;
+      font-family: Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, SimSun, sans-serif;
     }
 
     /* 弹窗 */
@@ -47,27 +48,30 @@
     .confirm-container .confirm-title {
       color: #855826;
       padding: 14px 16px;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 20px;
+      font-weight: 500;
       text-align: center;
     }
 
     /* 阅读内容 */
     .confirm-content {
       flex: 1 1 auto;
-      padding: 14px 16px;
+      padding: 14px 28px;
       color: #333;
       line-height: 28px;
+      font-size: 12px;
     }
 
     /* 同意阅读内容 */
     .confirm-agree {
       display: flex;
+      align-items: center;
       padding: 0 16px;
     }
+
     #agree-text {
       margin-left: 10px;
-      font-size: 16px;
+      font-size: 12px;
       color: #666;
     }
 
@@ -75,6 +79,7 @@
     .confirm-handle {
       padding: 14px 16px;
     }
+
     .confirm-submit {
       width: 100%;
       height: 42px;
@@ -82,7 +87,7 @@
       background-color: #855826;
       color: #fff;
       border: none;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     /* 提示 */
@@ -103,32 +108,56 @@
     }
 
     /* 修改radio样式 */
-    /** 未被选中的样式*/
-    input[type="radio"] {
+    input[type="checkbox"] {
       width: 20px;
       height: 20px;
-      margin: 0 4px 0 0;
       appearance: none;
       position: relative;
-      background: #fff;
-      border: 1px solid #808080;
-      border-radius: 50%;
     }
-    /** 选中的样式*/
-    input[type="radio"]:checked::before {
-      content: "";
-      background: wheat;
-      background: #855826;
-      position: absolute;
-      top: 25%;
-      left: 25%;
-      width: 50%;
-      height: 50%;
-      border: none;
+
+    input[type="checkbox"]:before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 1px solid #7d7d7d;
+      display: inline-block;
       border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    input[type="checkbox"]:checked:before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 1px solid #7d7d7d;
+      background: #fff;
+      display: inline-block;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    input[type="checkbox"]:checked:after {
+      content: '';
+      width: 10px;
+      height: 5px;
+      border: 2px solid #7d7d7d;
+      border-top: transparent;
+      border-right: transparent;
+      text-align: center;
+      display: block;
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      vertical-align: middle;
+      transform: rotate(-45deg);
+    }
+
+    input[type="checkbox"]:checked+label {
+      color: #fff;
     }
   </style>
 </head>
+
 <body>
   <div class="confirm-container">
     <!-- 标题 -->
@@ -138,11 +167,13 @@
     <div class="confirm-content">
       <!-- 同意内容 -->
       <p style="text-indent: 2em;">上海合作组织成员国元首理事会第二十二次会议即将在乌兹别克斯坦撒马尔罕举行。各成员国有望利用撒马尔罕峰会契机，重点就系列关切事项交换意见，寻求共识和解决方案。</p>
-      <p style="text-indent: 2em;">上合组织成员国始终遵循“上海精神”，坚持“走开放融通之路”，倡导创新、协调、绿色、开放、共享的发展理念，拓展务实合作空间，助力经济复苏、民生改善，推动区域经济合作取得累累硕果，向着<span style="color: red;">“相互成就发展振兴的美好愿景”</span>不断迈进，为全球发展繁荣贡献“上合力量”。</p>
+      <p style="text-indent: 2em;">
+        上合组织成员国始终遵循“上海精神”，坚持“走开放融通之路”，倡导创新、协调、绿色、开放、共享的发展理念，拓展务实合作空间，助力经济复苏、民生改善，推动区域经济合作取得累累硕果，向着<span
+          style="color: red;">“相互成就发展振兴的美好愿景”</span>不断迈进，为全球发展繁荣贡献“上合力量”。</p>
     </div>
     <!-- 是否同意 -->
     <div class="confirm-agree radio">
-      <input type="radio" name="agree" id="agree" value="true"/>
+      <input type="checkbox" name="agree" id="agree" value="true" />
       <label for="agree" id="agree-text">我已阅读</label>
     </div>
     <!-- 同意 -->
@@ -154,12 +185,12 @@
   <div id="simpleAlert" class="simple-alert">阅读问题提示后点击<span>我已阅读</span></div>
 
   <script type="text/javascript">
-    window.onload = function() {
-      document.getElementById('submit').onclick = function(e) {
+    window.onload = function () {
+      document.getElementById('submit').onclick = function (e) {
         var isChecked = get_radio('agree')
         if (!isChecked) {
           document.getElementById('simpleAlert').style.display = 'block'
-          setTimeout(function() {
+          setTimeout(function () {
             document.getElementById('simpleAlert').style.display = 'none'
           }, 1000)
           return
@@ -167,14 +198,16 @@
         alert('已同意')
       }
     }
-    function get_radio(obj_name){
+
+    function get_radio(obj_name) {
       var obj = document.getElementsByName(obj_name);
-      for(var i = 0; i < obj.length; i++){
-        if(obj[i].checked) {
-            return obj[i].value;
+      for (var i = 0; i < obj.length; i++) {
+        if (obj[i].checked) {
+          return obj[i].value;
         }
       }
     }
   </script>
 </body>
+
 </html>
