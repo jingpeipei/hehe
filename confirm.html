@@ -2,7 +2,7 @@
  * @Author: jingpeipei jingpeipei@kingsoft.com
  * @Date: 2022-09-16 21:04:16
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-09-16 23:01:07
+ * @LastEditTime: 2022-09-16 23:04:51
  * @FilePath: /insight-bx-vue/Users/jingpeipei/Desktop/confirm.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -110,13 +110,13 @@
 
     /* 修改radio样式 */
     input[type="checkbox"] {
-      /* width: 20px;
-      height: 20px; */
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       appearance: none;
       position: relative;
-      overflow: hidden;
       background-color: #fff;
+      box-sizing: border-box;
     }
 
     input[type="checkbox"]:before {
@@ -127,6 +127,7 @@
       display: inline-block;
       border-radius: 50%;
       vertical-align: middle;
+      background-color: #fff;
     }
 
     input[type="checkbox"]:checked:before {
