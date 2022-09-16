@@ -1,0 +1,134 @@
+<!--
+ * @Author: jingpeipei jingpeipei@kingsoft.com
+ * @Date: 2022-09-16 21:04:16
+ * @LastEditors: jingpeipei jingpeipei@kingsoft.com
+ * @LastEditTime: 2022-09-16 21:42:17
+ * @FilePath: /insight-bx-vue/Users/jingpeipei/Desktop/confirm.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!--优先使用IE最新版本和Chrome-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1" />
+  <!--视口--设备宽度--初始缩放比例--最小缩放比例--最大缩放比例--用户缩放-->
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <!--禁止浏览器自动的识别-电话号码-email--->
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <!--是否启用Web全屏-->
+  <meta name="apple-mobile-web-app-capable" content='yes' />
+  <meta name="apple-mobile-web-status-bar-style" content="normal|black|black-translucent">
+  <!--设置苹果工具栏颜色-->
+  <meta name="apple-mobile-web-app-status-bar-style" content='black' />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Microsoft YaHei,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,SimSun,sans-serif;
+    }
+
+    .confirm-container {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      height: 80%;
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    }
+
+    .confirm-container .confirm-title {
+      color: #855826;
+      padding: 14px 16px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .confirm-content {
+      flex: 1 1 auto;
+      padding: 14px 16px;
+      color: #333;
+      line-height: 22px;
+    }
+    .confirm-agree {
+      display: flex;
+      padding: 0 16px;
+    }
+    #agree-text {
+      margin-left: 10px;
+      font-size: 16px;
+      color: #666;
+    }
+    .confirm-handle {
+      padding: 14px 16px;
+    }
+    .confirm-submit {
+      width: 100%;
+      height: 42px;
+      border-radius: 21px;
+      background-color: #855826;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+    }
+    /* 修改radio样式 */
+    /** 未被选中的样式*/
+    input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      margin: 0 4px 0 0;
+      appearance: none;
+      position: relative;
+      background: #fff;
+      border: 1px solid #808080;
+      border-radius: 50%;
+    }
+    /** 选中的样式*/
+    input[type="radio"]:checked::before {
+      content: "";
+      background: wheat;
+      background: #855826;
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      width: 50%;
+      height: 50%;
+      border: none;
+      border-radius: 50%;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="confirm-container">
+    <!-- 标题 -->
+    <div class="confirm-title">
+      <p>温馨提示</p>
+    </div>
+    <div class="confirm-content">
+      <!-- 同意内容 -->
+      <p>上海合作组织成员国元首理事会第二十二次会议即将在乌兹别克斯坦撒马尔罕举行。各成员国有望利用撒马尔罕峰会契机，重点就系列关切事项交换意见，寻求共识和解决方案。</p>
+      <p>上合组织成员国始终遵循“上海精神”，坚持“走开放融通之路”，倡导创新、协调、绿色、开放、共享的发展理念，拓展务实合作空间，助力经济复苏、民生改善，推动区域经济合作取得累累硕果，向着“相互成就发展振兴的美好愿景”不断迈进，为全球发展繁荣贡献“上合力量”。</p>
+    </div>
+    <!-- 是否同意 -->
+    <div class="confirm-agree radio">
+      <input type="radio" id="agree"/>
+      <label for="agree" id="agree-text">我已阅读</label>
+    </div>
+    <!-- 同意 -->
+    <div class="confirm-handle">
+      <button type="button" class="confirm-submit" id="submit">同意</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+  </script>
+</body>
+</html>
