@@ -2,7 +2,7 @@
  * @Author: jingpeipei jingpeipei@kingsoft.com
  * @Date: 2022-09-16 21:04:16
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-09-16 21:42:17
+ * @LastEditTime: 2022-09-16 22:20:15
  * @FilePath: /insight-bx-vue/Users/jingpeipei/Desktop/confirm.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -29,6 +29,7 @@
       font-family: Microsoft YaHei,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,SimSun,sans-serif;
     }
 
+    /* 弹窗 */
     .confirm-container {
       display: flex;
       flex-direction: column;
@@ -39,9 +40,10 @@
       left: 10%;
       border-radius: 10px;
       background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+      box-shadow: 0 0 14px rgba(0, 0, 0, .4);
     }
 
+    /* 标题 */
     .confirm-container .confirm-title {
       color: #855826;
       padding: 14px 16px;
@@ -49,12 +51,16 @@
       font-weight: bold;
       text-align: center;
     }
+
+    /* 阅读内容 */
     .confirm-content {
       flex: 1 1 auto;
       padding: 14px 16px;
       color: #333;
-      line-height: 22px;
+      line-height: 28px;
     }
+
+    /* 同意阅读内容 */
     .confirm-agree {
       display: flex;
       padding: 0 16px;
@@ -64,6 +70,8 @@
       font-size: 16px;
       color: #666;
     }
+
+    /* 同意 */
     .confirm-handle {
       padding: 14px 16px;
     }
@@ -76,6 +84,24 @@
       border: none;
       font-size: 16px;
     }
+
+    /* 提示 */
+    .simple-alert {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 220px;
+      margin-left: -110px;
+      margin-top: -100px;
+      border-radius: 10px;
+      line-height: 28px;
+      padding: 16px 20px;
+      background-color: rgba(0, 0, 0, .88);
+      color: #fff;
+      display: none;
+      z-index: 999;
+    }
+
     /* 修改radio样式 */
     /** 未被选中的样式*/
     input[type="radio"] {
@@ -101,8 +127,6 @@
       border: none;
       border-radius: 50%;
     }
-
-
   </style>
 </head>
 <body>
@@ -113,12 +137,12 @@
     </div>
     <div class="confirm-content">
       <!-- 同意内容 -->
-      <p>上海合作组织成员国元首理事会第二十二次会议即将在乌兹别克斯坦撒马尔罕举行。各成员国有望利用撒马尔罕峰会契机，重点就系列关切事项交换意见，寻求共识和解决方案。</p>
-      <p>上合组织成员国始终遵循“上海精神”，坚持“走开放融通之路”，倡导创新、协调、绿色、开放、共享的发展理念，拓展务实合作空间，助力经济复苏、民生改善，推动区域经济合作取得累累硕果，向着“相互成就发展振兴的美好愿景”不断迈进，为全球发展繁荣贡献“上合力量”。</p>
+      <p style="text-indent: 2em;">上海合作组织成员国元首理事会第二十二次会议即将在乌兹别克斯坦撒马尔罕举行。各成员国有望利用撒马尔罕峰会契机，重点就系列关切事项交换意见，寻求共识和解决方案。</p>
+      <p style="text-indent: 2em;">上合组织成员国始终遵循“上海精神”，坚持“走开放融通之路”，倡导创新、协调、绿色、开放、共享的发展理念，拓展务实合作空间，助力经济复苏、民生改善，推动区域经济合作取得累累硕果，向着<span style="color: red;">“相互成就发展振兴的美好愿景”</span>不断迈进，为全球发展繁荣贡献“上合力量”。</p>
     </div>
     <!-- 是否同意 -->
     <div class="confirm-agree radio">
-      <input type="radio" id="agree"/>
+      <input type="radio" name="agree" id="agree" value="true"/>
       <label for="agree" id="agree-text">我已阅读</label>
     </div>
     <!-- 同意 -->
@@ -127,8 +151,30 @@
     </div>
   </div>
 
-  <script type="text/javascript">
+  <div id="simpleAlert" class="simple-alert">阅读问题提示后点击<span>我已阅读</span></div>
 
+  <script type="text/javascript">
+    window.onload = function() {
+      document.getElementById('submit').onclick = function(e) {
+        var isChecked = get_radio('agree')
+        if (!isChecked) {
+          document.getElementById('simpleAlert').style.display = 'block'
+          setTimeout(function() {
+            document.getElementById('simpleAlert').style.display = 'none'
+          }, 1000)
+          return
+        }
+        alert('已同意')
+      }
+    }
+    function get_radio(obj_name){
+      var obj = document.getElementsByName(obj_name);
+      for(var i = 0; i < obj.length; i++){
+        if(obj[i].checked) {
+            return obj[i].value;
+        }
+      }
+    }
   </script>
 </body>
 </html>
