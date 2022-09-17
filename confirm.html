@@ -1,9 +1,9 @@
 <!--
- * @Author: jingpeipei jingpeipei@kingsoft.com
+ * @Author: jingpeipei jingpeipei32@126.com
  * @Date: 2022-09-16 21:04:16
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-09-17 11:33:22
- * @FilePath: /insight-bx-vue/Users/jingpeipei/Desktop/confirm.html
+ * @LastEditTime: 2022-09-17 11:36:56
+ * @FilePath: /Users/jingpeipei/Desktop/confirm.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <!DOCTYPE html>
@@ -70,17 +70,17 @@
       padding: 10px 16px 0 16px;
     }
 
-    #agree-text {
+    #agreeText {
       margin-left: 10px;
       font-size: 12px;
       color: #666;
     }
 
-    #agree-text:active {
+    #agreeText:active {
       background-color: transparent;
     }
 
-    #agree-text:focus {
+    #agreeText:focus {
       outline: none;
     }
 
@@ -224,7 +224,7 @@
     <!-- 是否同意 -->
     <div class="confirm-agree radio">
       <input type="checkbox" name="agree" id="agree" value="true" />
-      <label for="agree" id="agree-text">我已阅读</label>
+      <label for="agree" id="agreeText" class="agree-text">我已阅读</label>
     </div>
     <!-- 同意 -->
     <div class="confirm-handle">
@@ -232,7 +232,7 @@
     </div>
   </div>
 
-  <div id="simpleAlert" class="simple-alert">阅读问题提示后点击<span>我已阅读</span></div>
+  <div id="simpleAlert" class="simple-alert">阅读问题提示后点击<span  class="agree-text">我已阅读</span></div>
 
   <script type="text/javascript">
     window.onload = function () {
@@ -244,7 +244,8 @@
             document.getElementById('simpleAlert').style.opacity = '0'
           }, 2000)
         } else {
-          
+          document.getElementById('simpleAlert').style.opacity = '0'
+          alert('同意')
         }
       }
     }
