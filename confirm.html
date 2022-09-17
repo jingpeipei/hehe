@@ -2,7 +2,7 @@
  * @Author: jingpeipei jingpeipei@kingsoft.com
  * @Date: 2022-09-16 21:04:16
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-09-16 23:41:24
+ * @LastEditTime: 2022-09-17 10:45:26
  * @FilePath: /insight-bx-vue/Users/jingpeipei/Desktop/confirm.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -178,6 +178,84 @@
     input[type="checkbox"]:checked+label {
       color: #fff;
     } */
+    .mui-checkbox {
+      -webkit-appearance: none;
+      position: relative;
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      background-color: #FFFFFF;
+      border: solid 1px #d9d9d9;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      background-clip: padding-box;
+      display: inline-block;
+    }
+
+    .mui-checkbox:focus {
+      outline: 0 none;
+      outline-offset: -2px;
+    }
+
+    .mui-checkbox:checked {
+      background-color: #18b4ed;
+      border: solid 1px #FFFFFF;
+    }
+
+    .mui-checkbox:checked:before {
+      display: inline-block;
+      margin-top: 1px;
+      margin-left: 2px;
+      font-family: iconfont;
+      content: "\e667";
+      color: #FFFFFF;
+      font-size: 18px;
+    }
+
+    .mui-checkbox:disabled {
+      background-color: #d9d9d9;
+      border: solid 1px #d9d9d9;
+    }
+
+    .mui-checkbox:disabled:before {
+      display: inline-block;
+      margin-top: 1px;
+      margin-left: 2px;
+      font-family: iconfont;
+      content: "\e667";
+      color: #FFFFFF;
+      font-size: 18px;
+    }
+
+    .mui-checkbox.checkbox-green:checked {
+      background-color: #5cb85c;
+    }
+
+    .mui-checkbox.checkbox-orange:checked {
+      background-color: #f0ad4e;
+    }
+
+    .mui-checkbox.checkbox-s {
+      width: 19px;
+      height: 19px;
+    }
+
+    .mui-checkbox.checkbox-s:before {
+      display: inline-block;
+      margin-top: 1px;
+      margin-left: 2px;
+      font-family: iconfont;
+      content: "\e667";
+      color: #FFFFFF;
+      font-size: 13px;
+    }
+
+    .mui-checkbox-anim {
+      -webkit-transition: background-color ease 0.2s;
+      transition: background-color ease 0.2s;
+    }
   </style>
 </head>
 
@@ -200,7 +278,7 @@
     </div>
     <!-- 是否同意 -->
     <div class="confirm-agree radio">
-      <input type="checkbox" name="agree" id="agree" value="true" />
+      <input type="checkbox" class="mui-checkbox" name="agree" id="agree" value="true" />
       <label for="agree" id="agree-text">我已阅读</label>
     </div>
     <!-- 同意 -->
