@@ -2,12 +2,13 @@
  * @Author: jingpeipei jingpeipei@kingsoft.com
  * @Date: 2022-10-05 15:06:41
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-10-05 15:26:27
+ * @LastEditTime: 2022-10-05 17:12:07
  * @FilePath: /ruoyi-ui/Users/jingpeipei/Desktop/selectPatient.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <!--优先使用IE最新版本和Chrome-->
@@ -28,15 +29,134 @@
       padding: 0;
       font-family: Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, SimSun, sans-serif;
     }
+
     body {
-      padding: 0 20px;
+      padding: 0 16px;
       box-sizing: border-box;
+      padding-bottom: 70px;
+      margin-bottom: constant(safe-area-inset-bottom);
+      margin-bottom: env(safe-area-inset-bottom);
     }
+
+    /* 标题 */
     .help-text {
       line-height: 54px;
       font-size: 18px;
       color: #333;
     }
+
+    /* 就诊人 */
+    .patient-item {
+      position: relative;
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: #F4F4F4;
+      border-radius: 8px;
+      border: 1px solid #F4F4F4;
+      overflow: hidden;
+    }
+
+    .patient-item.active {
+      border-color: #7A7973;
+      background-color: #EFEBE8;
+    }
+
+    .patient-item-left {
+      padding: 16px;
+    }
+
+    .patient-item-left p {
+      display: flex;
+      line-height: 22px;
+      font-size: 16px;
+      color: #424242;
+      align-items: center;
+    }
+
+    .patient-item-left .name {
+      margin-bottom: 14px;
+      color: #000;
+    }
+
+    .patient-item.active .patient-item-left p {
+      color: #A76D31;
+    }
+
+    .patient-item.active .patient-item-left .name {
+      color: #A76D31;
+    }
+
+    .patient-item-left .age {
+      position: relative;
+      padding-left: 6px;
+      margin-left: 6px;
+    }
+
+    .patient-item-left .age::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      display: inline-block;
+      width: 1px;
+      height: 16px;
+      background-color: #333;
+    }
+
+    .patient-item.active .patient-item-left .age::before {
+      background-color: #A76D31;
+    }
+
+    .patient-item-right {
+      display: flex;
+    }
+
+    .patient-item-right span {
+      position: relative;
+      padding: 14px 16px;
+      line-height: 24px;
+      color: #A76D31;
+      white-space: nowrap;
+    }
+
+    .patient-item-right span::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 1px;
+      height: 20px;
+      background-color: #DADADA;
+    }
+
+    .patient-item.active .checked {
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 80px;
+      height: 80px;
+      background-color: #A76D31;
+      border-radius: 40px;
+    }
+
+    .patient-item.active .checked:after {
+      content: '';
+      width: 12px;
+      height: 6px;
+      border: 2px solid #fff;
+      border-top: transparent;
+      border-right: transparent;
+      text-align: center;
+      display: block;
+      position: absolute;
+      top: 50px;
+      left: 16px;
+      transform: rotate(-45deg);
+    }
+
+    /* 添加就诊人 */
     #addPatient {
       width: 100%;
       height: 100px;
@@ -45,6 +165,7 @@
       border: 1px dashed #CBCBCB;
       border-radius: 8px;
     }
+
     #addPatient span {
       color: #A76D31;
       font-weight: bold;
@@ -84,25 +205,163 @@
       -ms-box-shadow: none;
       -khtml-box-shadow: none;
     }
+
+    /* 提示 */
+    .simple-alert {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 220px;
+      margin-left: -130px;
+      margin-top: -100px;
+      border-radius: 6px;
+      line-height: 28px;
+      padding: 14px 20px;
+      background-color: rgba(0, 0, 0, .9);
+      color: rgba(255, 255, 255, .9);
+      opacity: 0;
+      z-index: 999;
+      transition: all 1s ease-in-out;
+      -webkit-transition: all .3s ease-in-out;
+    }
   </style>
 </head>
+
 <body>
+  <!-- 标题 -->
   <p class="help-text">请选择就诊人</p>
+
+  <!-- 就诊人列表 -->
+  <div class="patients" id="patients">
+  </div>
+
+  <!-- 添加就诊人 -->
   <div id="addPatient">
     <span>添加就诊人</span>
   </div>
 
+  <!-- 确定 -->
   <footer>
     <button type="button" id="submit" class="confirm-submit">确认</button>
   </footer>
 
+  <div id="simpleAlert" class="simple-alert">请选择就诊人</div>
+
   <script type="text/javascript">
+    var patients = [{
+      id: '2323',
+      name: 'api',
+      age: '23',
+      sex: '女',
+      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
+      gms: 'rgaewethsrth6sbtrh'
+    }, {
+      id: '4545',
+      name: 'Ahhhh',
+      age: '56',
+      sex: '男',
+      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
+      gms: 'rgaewethsrth6sbtrh'
+    }, {
+      id: '2323',
+      name: 'api',
+      age: '23',
+      sex: '女',
+      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
+      gms: 'rgaewethsrth6sbtrh'
+    }, {
+      id: '4545',
+      name: 'Ahhhh',
+      age: '56',
+      sex: '男',
+      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
+      gms: 'rgaewethsrth6sbtrh'
+    }, {
+      id: '2323',
+      name: 'api',
+      age: '23',
+      sex: '女',
+      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
+      gms: 'rgaewethsrth6sbtrh'
+    }, {
+      id: '4545',
+      name: 'Ahhhh',
+      age: '56',
+      sex: '男',
+      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
+      gms: 'rgaewethsrth6sbtrh'
+    }]
     window.onload = function () {
       // 添加就诊人
       document.getElementById('addPatient').onclick = function (e) {
         alert('添加就诊人！');
       }
+
+      // 设置数据
+      document.getElementById('patients').innerHTML = getPatientTemplate(patients)
+    }
+
+    function getPatientTemplate(list) {
+      var template = ''
+      for (var i = 0; i < list.length; i++) {
+        template += '<div class="patient-item" id="patient-' + list[i].id + '" onclick="check(' + list[i].id +
+          ',event)">'
+        template += '<div class="patient-item-left">'
+        template += '<h3 class="name">' + list[i].name + '</h3>'
+        template += '<p><span id="sex">' + list[i].sex + '</span><span class="age">' + list[i].age + '</span></p>'
+        template += '<p>既往病史：' + list[i].jwbs + '</p>'
+        template += '<p>过敏史：' + list[i].gms + '</p>'
+        template += '</div>'
+        template += '<div class="patient-item-right">'
+        template += '<span class="edit" onclick="edit(' + list[i].id + ',event)">编辑</span>'
+        template += '</div>'
+        template += '</div>'
+      }
+      return template
+    }
+
+    function check(id, e) {
+      // 先清空右上角选中标识符
+      if (document.querySelector('.checked')) {
+        document.querySelector('.checked').remove()
+      }
+      // 获取选中节点
+      var activeNode = document.getElementById('patient-' + id);
+      // 获取就诊人全部节点、移除选中类名
+      var patientsNode = activeNode.parentNode.children
+      for (var i = 0; i < patientsNode.length; i++) {
+        patientsNode[i].classList.remove('active')
+      }
+      // 创建选中标识符
+      var checked = document.createElement('span')
+      // 选中标识符添加选中类名
+      addClass(checked, 'checked')
+      // 将选中标识符插入元素
+      activeNode.append(checked)
+      // 添加选中类名
+      addClass(document.getElementById('patient-' + id), 'active')
+    }
+
+    function edit(id, e) {
+      alert('编辑')
+      e.stopPropagation();
+    }
+
+    function addClass(el, className) {
+      if (hasClass(el, className)) {
+        return
+      }
+
+      let newClass = el.className.split(' ')
+      newClass.push(className)
+      el.className = newClass.join(' ')
+    }
+
+    function hasClass(el, className) {
+      let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
+      return reg.test(el.className)
     }
   </script>
 </body>
+
 </html>
