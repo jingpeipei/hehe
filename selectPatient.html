@@ -2,13 +2,12 @@
  * @Author: jingpeipei jingpeipei32@126.com
  * @Date: 2022-10-05 15:06:41
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-10-05 19:28:37
+ * @LastEditTime: 2022-10-05 20:01:17
  * @FilePath: /ruoyi-ui/Users/jingpeipei/Desktop/selectPatient.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <!--优先使用IE最新版本和Chrome-->
@@ -65,6 +64,7 @@
 
     .patient-item-left {
       padding: 16px;
+      flex: 1 1 auto;
     }
 
     .patient-item-left p {
@@ -172,6 +172,7 @@
       font-size: 18px;
     }
 
+    /* 确定 */
     footer {
       position: fixed;
       box-sizing: border-box;
@@ -249,53 +250,30 @@
     <button type="button" id="submit" class="confirm-submit">确认</button>
   </footer>
 
+  <!-- 提示 -->
   <div id="simpleAlert" class="simple-alert">请选择就诊人</div>
 
   <script type="text/javascript">
+    // 选中就诊人值
     var checkedVal = ''
+
+    // 就诊人列表
     var patients = [{
       id: '1',
-      name: '1api',
+      name: 'api',
       age: '23',
       sex: '女',
       jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
       gms: 'rgaewethsrth6sbtrh'
     }, {
       id: '2',
-      name: '2Ahhhh',
-      age: '56',
-      sex: '男',
-      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
-      gms: 'rgaewethsrth6sbtrh'
-    }, {
-      id: '3',
-      name: '3api',
-      age: '23',
-      sex: '女',
-      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
-      gms: 'rgaewethsrth6sbtrh'
-    }, {
-      id: '4',
-      name: '4Ahhhh',
-      age: '56',
-      sex: '男',
-      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
-      gms: 'rgaewethsrth6sbtrh'
-    }, {
-      id: '5',
-      name: '5api',
-      age: '23',
-      sex: '女',
-      jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
-      gms: 'rgaewethsrth6sbtrh'
-    }, {
-      id: '6',
-      name: '6Ahhhh',
+      name: 'Ahhhh',
       age: '56',
       sex: '男',
       jwbs: '围观吧铯哈他爸和他谈东风本田哈俄提供哈额头',
       gms: 'rgaewethsrth6sbtrh'
     }]
+    // 加载后
     window.onload = function () {
       // 添加就诊人
       document.getElementById('addPatient').onclick = function (e) {
@@ -314,10 +292,11 @@
         }
       }
 
-      // 设置数据
+      // 设置就诊人内容
       document.getElementById('patients').innerHTML = getPatientTemplate(patients)
     }
 
+    // 获取就诊人模板
     function getPatientTemplate(list) {
       var template = ''
       for (var i = 0; i < list.length; i++) {
@@ -337,6 +316,7 @@
       return template
     }
 
+    // 选择
     function check(id, e) {
       checkedVal = id;
       // 先清空右上角选中标识符
@@ -360,11 +340,13 @@
       addClass(document.getElementById('patient-' + id), 'active')
     }
 
+    // 编辑
     function edit(id, e) {
       alert('编辑')
       e.stopPropagation();
     }
 
+    // 添加类名
     function addClass(el, className) {
       if (hasClass(el, className)) {
         return
@@ -375,6 +357,7 @@
       el.className = newClass.join(' ')
     }
 
+    // 存在某类名
     function hasClass(el, className) {
       let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
       return reg.test(el.className)
