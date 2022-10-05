@@ -2,7 +2,7 @@
  * @Author: jingpeipei jingpeipei@kingsoft.com
  * @Date: 2022-10-05 15:06:41
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-10-05 17:31:16
+ * @LastEditTime: 2022-10-05 17:35:42
  * @FilePath: /ruoyi-ui/Users/jingpeipei/Desktop/selectPatient.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -175,7 +175,9 @@
     footer {
       position: fixed;
       box-sizing: border-box;
-      padding: 14px 16px 0 16px;
+      padding-right: 16px;
+      padding-top: 14px;
+      padding-left: 16px;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -250,6 +252,7 @@
   <div id="simpleAlert" class="simple-alert">请选择就诊人</div>
 
   <script type="text/javascript">
+    var checkedVal = ''
     var patients = [{
       id: '1',
       name: '1api',
@@ -298,6 +301,21 @@
       document.getElementById('addPatient').onclick = function (e) {
         alert('添加就诊人！');
       }
+      // 确定
+      document.getElementById('submit').onclick = function (e) {
+      if (document.querySelector('.checked')) {
+        document.querySelector('.checked').remove()
+      }
+        if (checkedVal === '') {
+          document.getElementById('simpleAlert').style.opacity = '1'
+          setTimeout(function () {
+            document.getElementById('simpleAlert').style.opacity = '0'
+          }, 2000)
+        } else {
+          document.getElementById('simpleAlert').style.opacity = '0'
+          alert('就诊人：'+ checkedVal)
+        }
+      }
 
       // 设置数据
       document.getElementById('patients').innerHTML = getPatientTemplate(patients)
@@ -323,6 +341,7 @@
     }
 
     function check(id, e) {
+      checkedVal = id;
       // 先清空右上角选中标识符
       if (document.querySelector('.checked')) {
         document.querySelector('.checked').remove()
