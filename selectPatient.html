@@ -2,7 +2,7 @@
  * @Author: jingpeipei jingpeipei32@126.com
  * @Date: 2022-10-05 15:06:41
  * @LastEditors: jingpeipei jingpeipei@kingsoft.com
- * @LastEditTime: 2022-10-05 17:46:42
+ * @LastEditTime: 2022-10-05 19:26:03
  * @FilePath: /ruoyi-ui/Users/jingpeipei/Desktop/selectPatient.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -137,6 +137,7 @@
       top: -40px;
       width: 80px;
       height: 80px;
+      z-index: 998;
       background-color: #A76D31;
       border-radius: 40px;
     }
@@ -299,13 +300,10 @@
     window.onload = function () {
       // 添加就诊人
       document.getElementById('addPatient').onclick = function (e) {
-        console.log('添加就诊人！');
+        alert('添加就诊人！');
       }
       // 确定
       document.getElementById('submit').onclick = function (e) {
-        if (document.querySelector('.checked')) {
-          document.querySelector('.checked').remove()
-        }
         if (checkedVal === '') {
           document.getElementById('simpleAlert').style.opacity = '1'
           setTimeout(function () {
@@ -313,7 +311,7 @@
           }, 2000)
         } else {
           document.getElementById('simpleAlert').style.opacity = '0'
-          console.log('就诊人：'+ checkedVal)
+          alert('就诊人：'+ checkedVal)
         }
       }
 
@@ -364,7 +362,7 @@
     }
 
     function edit(id, e) {
-      console.log('编辑')
+      alert('编辑')
       e.stopPropagation();
     }
 
