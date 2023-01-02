@@ -189,6 +189,9 @@ span {
     color: #000;
     font-size: 18px;
 }
+.navbox .top .con h4 {
+    margin-bottom: 8px;
+}
 
 .navbox .con p {
     color: #7a7171;
@@ -260,7 +263,7 @@ span {
 }
 
 .business .bottom .btmbox img {
-    width: 50%;
+    width: 33%;
 }
 
 .business .bottom .btmbox p {
