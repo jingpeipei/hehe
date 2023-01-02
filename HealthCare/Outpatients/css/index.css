@@ -253,6 +253,10 @@ span {
 .introduce .content .con .foncon h4 {
     font-size: 18px;
     color: #232221;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .introduce .content .con .foncon p {
@@ -279,12 +283,12 @@ span {
 }
 
 .introduce .content .con .img {
-    width: 25%;
+    height: 70px;
     margin-left: 8px;
     border-radius: 5px;
 }
 
 .introduce .content .con .img img {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
 }
