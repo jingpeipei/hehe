@@ -219,13 +219,26 @@ span {
 }
 
 .introduce .title h3 {
+    position: relative;
+    padding-left: 10px;
+    height: 16px;
     font-size: 16px;
     line-height: 1;
     color: #232221;
-    margin-left: 4px;
     /* padding: 0 0 0 10px;
     background: url(../image/矩形\ 5\ 拷贝.png) no-repeat;
     background-size: 7px; */
+}
+
+.introduce .title h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 16px;
+    width: 4px;
+    background-color: #4AB7AE;
+    border-radius: 1px;
 }
 
 .introduce .content {
@@ -253,7 +266,7 @@ span {
 .introduce .content .con .foncon h4 {
     font-size: 16px;
     line-height: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     color: #232221;
     width: 100%;
     overflow: hidden;
@@ -269,7 +282,7 @@ span {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .introduce .content .con .foncon span {
