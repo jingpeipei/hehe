@@ -64,14 +64,15 @@
       }
       .log-item .datetime {
         position: relative;
-        height: 24px;
+        height: 20px;
+        margin-bottom: 4px;
       }
 
       .log-item .datetime::before {
         content: "";
         position: absolute;
         left: -34.5px;
-        top: 8px;
+        top: 6px;
         width: 8px;
         height: 8px;
         background-color: #BDBDBD;
@@ -86,8 +87,8 @@
       .log-item.active .datetime::before {
         width: 20px;
         height: 20px;
-        left: -41px;
-        top: 2px;
+        left: -41.5px;
+        top: 0px;
         background-image: url(./images/act.jpg);
         background-size: 100%;
         background-repeat: no-repeat;
@@ -96,8 +97,8 @@
       .log-item .datetime .date,
       .log-item .datetime .time {
         display: inline-block;
-        height: 24px;
-        line-height: 24px;
+        height: 20px;
+        line-height: 20px;
       }
 
       .log-item .datetime .time {
