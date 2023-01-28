@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物流信息</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+      }
+      
+      .title {
+        position: relative;
+        margin: 0 20px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #101010;
+        text-align: center;
+      }
+
+      .title::after {
+        display: block;
+        content:"";
+        position:absolute;
+        left:0;
+        bottom:0;
+        width: 100%;
+        height: 0;
+        border-bottom: 1px dashed #BDBDBD;
+        /* transform: scaleY(0.33);
+        -webkit-transform: scaleY(0.33);
+        -moz-transform: scaleY(0.33);
+        -o-transform: scaleY(0.33);
+        transform-origin: 0 bottom;
+        -webkit-transform-origin: 0 bottom;
+        -moz-transform-origin: 0 bottom;
+        -o-transform-origin: 0 bottom; */
+      }
+
+      .log-wrapper {
+        margin: 0 20px;
+        padding: 20px;
+      }
+
+      .log-item {
+        position: relative;
+        padding-left: 30px;
+        padding-bottom: 14px;
+        border-left: 1px solid #BDBDBD;
+        color: #666;
+        font-size: 14px;
+      }
+      .log-item .datetime {
+        position: relative;
+        height: 24px;
+      }
+
+      .log-item .datetime::before {
+        content: "";
+        position: absolute;
+        left: -34.5px;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        background-color: #BDBDBD;
+        border-radius: 4px;
+      }
+
+      .log-item.active {
+        padding-bottom: 24px;
+        color: #101010;
+      }
+
+      .log-item.active .datetime::before {
+        width: 24px;
+        height: 24px;
+        left: -43px;
+        top: 0px;
+        background-image: url(./images/act.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+
+      .log-item .datetime .date,
+      .log-item .datetime .time {
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+      }
+
+      .log-item .datetime .time {
+        margin-left: 8px;
+        font-size: 12px;
+      }
+  </style>
+</head>
+<body>
+  <p class="title">珠海市</p>
+  <div class="log-wrapper">
+    <div class="log-item active">
+      <p class="datetime"><span class="date">01-18</span><span class="time">12:05</span></p>
+      <p class="log-info">您的快件已有本人签收，感谢您使用京东物流，期待再次为您服务</p>
+    </div>
+    <div class="log-item">
+      <p class="datetime"><span class="date">01-18</span><span class="time">12:05</span></p>
+      <p class="log-info">您的快件已发车</p>
+    </div>
+    <div class="log-item">
+      <p class="datetime"><span class="date">01-18</span><span class="time">12:05</span></p>
+      <p class="log-info">您的快件已发车</p>
+    </div>
+    <div class="log-item">
+      <p class="datetime"><span class="date">01-18</span><span class="time">12:05</span></p>
+      <p class="log-info">您的快件已发车</p>
+    </div>
+  </div>
+</body>
+</html>
