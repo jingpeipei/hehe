@@ -21,17 +21,23 @@
       box-sizing: border-box;
       width: calc(100vw - 24px);
       margin: 16px 12px 0 12px;
+    }
+
+    .ipt-search input {
+      box-sizing: border-box;
+      width: 100%;
+      border: none;
       padding-left: 20px;
       height: 37px;
       border-radius: 20px;
+      background-color: #fff;
+    }
+
+    .ipt-search input:focus {
       border: none;
     }
 
-    .ipt-search:focus {
-      border: none;
-    }
-
-    /* .ipt-search::after {
+    .ipt-search::after {
       content: '';
       position: absolute;
       right: 12px;
@@ -41,8 +47,7 @@
       width: 16px;
       height: 16px;
       background-size: 100%;
-      background-color: red;
-    } */
+    }
 
     .focus {
       margin: 20px 12px 14px 12px;
@@ -105,6 +110,7 @@
 
     nav ul li {
       text-align: center;
+      width: 20%;
     }
 
     nav ul li img {
@@ -266,7 +272,10 @@
 
 <body>
   <!-- 搜索区域 -->
-  <input id="searchIpt" class="ipt-search" placeholder="请输入医院名字进行搜索">
+  <div class="ipt-search">
+
+    <input id="searchIpt" placeholder="请输入医院名字进行搜索">
+  </div>
   <!-- 轮播部分 -->
   <div class="focus">
     <ul>
