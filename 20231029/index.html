@@ -413,7 +413,12 @@
     document.getElementById('searchIpt').onchange = function(e) {
       alert('搜索值改变')
     }
-    
+    // 获取焦点光标在最后面
+    document.getElementById('searchIpt').onfocus = function(e) {
+      var _val=$("#searchIpt").val(); 
+      $("#searchIpt").val("").focus().val(_val); 
+    }
+
   }
 
   function setText(container, text) {
