@@ -117,7 +117,20 @@ body, html {
   height: auto;
   /* background: linear-gradient(-90deg, #FCFDFD, #E3FDFF, #FBFDFF); */
   background-color: #E3FDFF;
-  color: #242527;
+  color: #343333;
   padding-bottom: 20px;
   box-sizing: content-box;
+}
+
+footer img {
+  width: 100%;
+}
+footer p {
+  background-color: #FAF6F3;
+  font-size: 12px;
+  color: #A4A4A4;
+  text-align: center;
+  line-height: 24px;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
