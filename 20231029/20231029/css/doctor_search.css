@@ -1,0 +1,181 @@
+
+html, body {
+  padding: 0;
+}
+
+.dept-wrapper {
+  width: calc(100% - 24px);
+  margin: 12px 12px 0;
+  background-color: #fff;
+}
+
+.dept-con {
+  padding-top: 6px;
+  padding-bottom: 20px;
+  margin: 0 16px 0 6px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.dept-con .dept-item {
+  /* flex: 1; */
+  width: calc(33.33% - 8px);
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #888888;
+  border-radius: 3px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+.dept-con .dept-item.active {
+  background-color: #4AC2A7;
+  border-color: #4AC2A7;
+  color: #fff;
+}
+
+.fold-wrapper {
+  display: flex;
+  justify-content: center;
+  color: #A4A4A4;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.fold-wrapper .arrow {
+  transition: all .35s;
+  width: 12px;
+  height: 12px;
+  margin-left: 6px;
+}
+
+.fold-wrapper .arrow.top {
+  transform: rotate(180deg);
+}
+.ipt-search {
+  position: relative;
+  box-sizing: border-box;
+  width: calc(100vw - 24px);
+  margin: 16px 12px 0 12px;
+}
+
+.ipt-search input {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  padding-left: 20px;
+  height: 37px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.ipt-search input:focus {
+  border: none;
+}
+
+.ipt-search::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  background-image: url(../image/search.png);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  background-size: 100%;
+}
+
+.discribe-wrapper {
+  width: calc(100% - 24px);
+  margin: 12px 12px 12px 12px;
+  background-color: #fff;
+}
+
+.discribe-wrapper img {
+  width: 100%;
+}
+.discribe-wrapper marquee {
+  line-height: 32px;
+}
+
+/* 医生介绍 */
+.doctor-wrapper {
+  margin: 0 12px;
+  width: calc(100vw - 24px);
+  box-sizing: border-box;
+}
+
+.doctor-wrapper .doctor-item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  background: linear-gradient(0deg, #FFFFFF, #E4FDFF);
+  border-radius: 15px;
+  padding: 20px 0;
+  margin-bottom: 12px;
+}
+
+.doctor-wrapper .doctor-item .doctor-left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.doctor-wrapper .doctor-item .doctor-left .doctor-photo {
+  width: 62.5%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.doctor-wrapper .doctor-item .doctor-left .doctor-name {
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #343333;
+}
+
+.doctor-wrapper .doctor-item .doctor-left .visit-time {
+  font-size: 13px;
+}
+
+.doctor-wrapper .doctor-item .doctor-right {
+  position: relative;
+  width: 70%;
+  padding-left: 16px;
+  padding-right: 32px;
+}
+
+.doctor-wrapper .doctor-item .doctor-right::before {
+  content: '';
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #CAFCF1;
+}
+
+.doctor-wrapper .doctor-item .doctor-right p {
+  line-height: 24px;
+}
+
+.doctor-wrapper .doctor-item .doctor-right p label {
+  color: #48C3A6;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.doctor-wrapper .doctor-item .doctor-arrow {
+  position: absolute;
+  width: 7px;
+  height: 12px;
+  top: 50%;
+  margin-top: -6px;
+  right: 12px;
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>北京西鹤年堂中医医院</title>
+  <link href="./css/main.css" rel="stylesheet">
+  <style>
+    .ipt-search {
+      position: relative;
+      box-sizing: border-box;
+      width: calc(100vw - 24px);
+      margin: 16px 12px 0 12px;
+    }
+
+    .ipt-search input {
+      box-sizing: border-box;
+      width: 100%;
+      border: none;
+      padding-left: 20px;
+      height: 37px;
+      border-radius: 20px;
+      background-color: #fff;
+    }
+
+    .ipt-search input:focus {
+      border: none;
+    }
+
+    .ipt-search::after {
+      content: '';
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      background-image: url(./image/search.png);
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+      background-size: 100%;
+    }
+
+    .focus {
+      margin: 20px 12px 14px 12px;
+      width: calc(100vw - 24px);
+      overflow: hidden;
+      position: relative;
+      border-radius: 7px;
+      /* padding-top: 44px; */
+    }
+
+    .focus img {
+      width: 100%;
+      /* height: 382px; */
+    }
+
+    .focus ul {
+      overflow: hidden;
+      width: 500%;
+    }
+
+    .focus ul li {
+      float: left;
+      width: 20%;
+    }
+
+
+    /* .focus ol {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            margin: 0;
+        }
+
+        .focus ol li {
+            使其变成行内块元素，就可以浮动一排显示
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 2px;
+            background-color: #fff;
+            list-style: none;
+            transition: all 0.3s;
+        } */
+
+
+    /* .focus ol li.current {
+            width: 15px;
+        } */
+
+    /* 导航区域 */
+    nav {
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    nav ul li {
+      text-align: center;
+      width: 20%;
+    }
+
+    nav ul li img {
+      display: inline-block;
+      width: 80%;
+    }
+
+    nav ul li p {
+      text-align: center;
+    }
+
+    /* 医生介绍 */
+    .doctor-wrapper {
+      margin: 0 12px;
+      width: calc(100vw - 24px);
+      box-sizing: border-box;
+    }
+
+    .doctor-wrapper .doctor-item {
+      position: relative;
+      display: flex;
+      width: 100%;
+      background: linear-gradient(0deg, #FFFFFF, #E4FDFF);
+      border: 1px solid #B1F9E8;
+      border-radius: 15px;
+      padding: 20px 0;
+      margin-bottom: 12px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-left {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 30%;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-left .doctor-photo {
+      width: 62.5%;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-left .doctor-name {
+      margin-bottom: 12px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #343333;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-left .visit-time {
+      font-size: 13px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-right {
+      position: relative;
+      width: 70%;
+      padding-left: 16px;
+      padding-right: 32px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-right::before {
+      content: '';
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #CAFCF1;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-right p {
+      line-height: 24px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-right p label {
+      color: #48C3A6;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-arrow {
+      position: absolute;
+      width: 7px;
+      height: 12px;
+      top: 50%;
+      margin-top: -6px;
+      right: 12px;
+    }
+
+    .article-wrapper {
+      width: calc(100vw - 24px);
+      box-sizing: border-box;
+      margin: 0 12px;
+      background: linear-gradient(0deg, #FFFFFF, #E4FDFF);
+      border: 1px solid #B1F9E8;
+      border-radius: 15px;
+      padding-left: 11px;
+      padding-right: 14px;
+    }
+
+    .article-wrapper .article-item {
+      position: relative;
+      display: flex;
+      padding-bottom: 20px;
+      padding-top: 18px;
+    }
+
+    .article-wrapper .article-item+.article-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #CAFCF1;
+    }
+
+    .article-wrapper .article-item .article-item-left {
+      width: 75%;
+    }
+
+    .article-wrapper .article-item .article-item-left .article-item-title {
+      font-weight: bold;
+      color: #4AC2A7;
+      margin-bottom: 8px;
+    }
+    .article-wrapper .article-item .article-item-left div {
+    }
+    .article-wrapper .article-item .article-item-left .article-item-content {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 16px;
+      margin-bottom: 10px;
+    }
+
+    .article-wrapper .article-item .article-item-left .detail-span {
+      color: #D91E1E;
+      font-size: 12px;
+    }
+
+    .article-wrapper .article-item .article-item-left .article-item-time {
+      color: #8E8A8A;
+      font-size: 10px;
+    }
+
+    .article-wrapper .article-item .article-item-right {
+      width: 25%;
+      padding-left: 16px;
+    }
+
+    .article-wrapper .article-item .article-item-right img {
+      width: 100%;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 搜索区域 -->
+  <div class="ipt-search">
+
+    <input id="searchIpt" placeholder="请输入医院名字进行搜索">
+  </div>
+  <!-- 轮播部分 -->
+  <div class="focus">
+    <ul>
+      <li><img src="image/banner.png" alt=""></li>
+      <li><img src="image/banner.png" alt=""></li>
+      <li><img src="image/banner.png" alt=""></li>
+      <li><img src="image/banner.png" alt=""></li>
+      <li><img src="image/banner.png" alt=""></li>
+    </ul>
+    <!-- 轮播图中的小圆圈 -->
+    <!-- <ol>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ol> -->
+  </div>
+
+  <!-- 导航部分 -->
+  <nav>
+    <ul>
+      <li>
+        <img alt="" src="./image/second_index_nav_01.png">
+        <p>预约挂号</p>
+      </li>
+      <li>
+        <img alt="" src="./image/second_index_nav_02.png">
+        <p>专家咨询</p>
+      </li>
+      <li>
+        <img alt="" src="./image/second_index_nav_03.png">
+        <p>住院服务</p>
+      </li>
+      <li>
+        <img alt="" src="./image/second_index_nav_04.png">
+        <p>公益义诊</p>
+      </li>
+      <li>
+        <img alt="" src="./image/second_index_nav_05.png">
+        <p>来院地址</p>
+      </li>
+    </ul>
+  </nav>
+  <!-- 医生介绍 -->
+  <section class="doctor-wrapper">
+    <div class="doctor-item" onclick="openDoctor()">
+      <div class="doctor-left">
+        <img class="doctor-photo" alt="" src="./image/photo.jpeg">
+        <p class="doctor-name">苏惠萍</p>
+        <span class="visit-time">星期三</span>
+      </div>
+      <div class="doctor-right">
+        <p>
+          <label>职称:</label><span>主任医师（教授）</span>
+        </p>
+        <p>
+          <label>出诊:</label><span>北京西鹤年堂中医医院</span>
+        </p>
+        <p>
+          <label>地点:</label><span>北京</span>
+        </p>
+        <p>
+          <label>擅长:</label><span>临床主治内科疾病尤以肺部质纤维化、哮喘、慢阻肺、肺结节、慢性咳嗽等呼吸疾病见长</span>
+        </p>
+      </div>
+      <img class="doctor-arrow" alt="" src="./image/second_arrow_right.png">
+    </div>
+
+    <div class="doctor-item" onclick="openDoctor()">
+      <div class="doctor-left">
+        <img class="doctor-photo" alt="" src="./image/photo.jpeg">
+        <p class="doctor-name">苏惠萍</p>
+        <span class="visit-time">星期三</span>
+      </div>
+      <div class="doctor-right">
+        <p>
+          <label>职称:</label><span>主任医师（教授）</span>
+        </p>
+        <p>
+          <label>出诊:</label><span>北京西鹤年堂中医医院</span>
+        </p>
+        <p>
+          <label>地点:</label><span>北京</span>
+        </p>
+        <p>
+          <label>擅长:</label><span>临床主治内科疾病尤以肺部质纤维化、哮喘、慢阻肺、肺结节、慢性咳嗽等呼吸疾病见长</span>
+        </p>
+      </div>
+      <img class="doctor-arrow" alt="" src="./image/second_arrow_right.png">
+    </div>
+  </section>
+
+  <section class="article-wrapper">
+    <div class="article-item">
+      <div class="article-item-left">
+        <p class="article-item-title">中医减肥有妙招！张医师腹针疗法帮你</p>
+        <div class="article-item-content">
+          <span class="content">腹针疗法是一种特殊的针灸疗法，通过针刺腹针疗法是一种特殊的针灸疗法，通过针刺腹部的特定穴位，并配以艾灸疗法hhhh</span>
+          <span class="detail-span">[详细]</span>
+        </div>
+        <p class="article-item-time">2023-10-05</p>
+      </div>
+      <div class="article-item-right">
+        <img alt="" src="./image/photo.jpeg">
+      </div>
+    </div>
+
+    <div class="article-item">
+      <div class="article-item-left">
+        <p class="article-item-title">中医减肥有妙招！张医师腹针疗法帮你</p>
+        <div class="article-item-content">
+          <span class="content">腹针疗法是一种特殊的针灸疗法，通过针刺腹针疗法是一种特殊hhhh</span>
+          <span class="detail-span">[详细]</span>
+        </div>
+        <p class="article-item-time">2023-10-05</p>
+      </div>
+      <div class="article-item-right">
+        <img alt="" src="./image/photo.jpeg">
+      </div>
+    </div>
+  </section>
+</body>
+<script type="text/javascript">
+  function openDoctor() {
+    alert('跳转医生介绍')
+  }
+
+  window.onload = function () {
+    // 控制文章...
+    var contents = document.querySelectorAll('.article-item-content .content')
+    for(var i = 0;i < contents.length; i++)  {
+      setText(contents[i], contents[i].innerHTML)
+    }
+
+    // 搜索
+    document.getElementById('searchIpt').onchange = function(e) {
+      alert('搜索值改变')
+    }
+    // 获取焦点光标在最后面
+    document.getElementById('searchIpt').onfocus = function(e) {
+      
+    }
+
+  }
+
+  function setText(container, text) {
+    container.innerHTML = text;
+    if(container.offsetHeight > 32) {
+    console.log(container.offsetHeight)
+        var maxLines = 2;
+        var lineHeight = parseInt(getComputedStyle(container).lineHeight);
+        var overflowHeight = container.offsetHeight - (lineHeight * maxLines);
+        console.log('overflowHeight', overflowHeight, container)
+        var index = Math.floor(((text.length - 3) * overflowHeight) / container.offsetHeight) * 2;
+        console.log(index, text.length, lineHeight)
+        container.innerHTML = text.slice(0, index) + '...';
+    } else {
+
+    }
+  }
+
+  /**
+   * 无缝轮播原理，第一张图片和最后一张图片是一样的，有几张 banner 图，css 里 .focus ul 的 width 就是 n * 100%
+   * */
+  window.addEventListener("load", function () {
+    // 1. 获取元素
+    var focus = document.querySelector(".focus");
+    var ul = focus.children[0];
+    var ol = focus.children[1];
+    // 获得focus的宽度
+    var w = focus.offsetWidth;
+    // 2. 利用定时器自动轮播图片
+    var index = 0;
+    var timer = setInterval(function () {
+      index++;
+      var translateX = -index * w;
+      // 添加动画效果
+      ul.style.transition = "all .3s";
+      ul.style.transform = "translateX(" + translateX + "px)";
+    }, 2000);
+    // 等着过渡完成之后，再去判断，监听过渡完成的事件transitionend
+    ul.addEventListener("transitionend", function () {
+      // 无缝滚动
+      if (index >= ul.children.length - 1) {
+        index = 0;
+        // 去掉过渡效果，这样让ul快速的跳到目标位置
+        ul.style.transition = "none";
+        // 利用最新的索引号乘以宽度，继续滚动图片
+        var translateX = -index * w;
+        ul.style.transform = "translateX(" + translateX + "px)";
+      } else if (index < 0) {
+        index = 2;
+        // 去掉过渡效果，这样让ul快速的跳到目标位置
+        ul.style.transition = "none";
+        // 利用最新的索引号乘以宽度，继续滚动图片
+        var translateX = -index * w;
+        ul.style.transform = "translateX(" + translateX + "px)";
+      }
+      // 3. 小圆点跟随变化
+      // 把ol里面li带有current类名的选出来，去掉类名remove
+      // ol.querySelector(".current").classList.remove("current");
+      // // 让当前索引号的li加上current类名add
+      // ol.children[index].classList.add("current");
+    });
+    // 4. 手指滑动轮播图
+    // 触摸元素touchstart：获取手指初始坐标
+    var startX = 0;
+    var moveX = 0; // 后面会使用这个移动距离，所以要定义为全局变量
+    var flag = false; //用来标志手指是否真的移动，还是只是点击
+    ul.addEventListener("touchstart", function (e) {
+      startX = e.targetTouches[0].pageX;
+      // 手指触摸的时候就停止定时器
+      clearInterval(timer);
+    });
+    // 移动手指touchmove：计算手指的滑动距离，并且移动盒子
+    ul.addEventListener("touchmove", function (e) {
+      // 计算移动距离
+      // e.targetTouches[0]为第一个手指，[1]表示第二个手指
+      moveX = e.targetTouches[0].pageX - startX;
+      // 移动盒子：盒子原来的位置 + 手指移动的距离
+      var translateX = -index * w + moveX;
+      // 手指拖动的时候，不需要动画效果，所以要取消过渡效果
+      ul.style.transition = "none";
+      ul.style.transform = "translateX(" + translateX + "px)";
+      flag = true;
+      e.preventDefault(); //组织滚动屏幕的行为
+    });
+    // 手指离开，根据移动距离去判断是回弹还是播放上一张或者下一张
+    ul.addEventListener("touchend", function (e) {
+      // 只有手指移动过了，才执行下面的代码
+      if (flag) {
+        //（1）如果移动距离大于50像素，则播放上一张或者下一张
+        if (Math.abs(moveX) > 50) {
+          // 如果是右滑就是播放上一张，moveX是正值
+          if (moveX > 0) {
+            index--;
+          } else {
+            // 如果是左滑就是播放下一张，moveX是负值
+            index++;
+          }
+          // 用最新的index乘以宽度
+          var translateX = -index * w;
+          ul.style.transition = "all .3s";
+          ul.style.transform = "translateX(" + translateX + "px)";
+        } else {
+          //（2）如果移动距离小于50像素就回弹
+          var translateX = -index * w;
+          ul.style.transition = "all .1s";
+          ul.style.transform = "translateX(" + translateX + "px)";
+        }
+      }
+      // 手指离开的时候就重新开启定时器
+      // 注意：开启定时器之前要先清空之前的定时器，保证当前只有一个定时器在执行
+      clearInterval(timer);
+      timer = setInterval(function () {
+        index++;
+        var translateX = -index * w;
+        // 添加动画效果
+        ul.style.transition = "all .3s";
+        ul.style.transform = "translateX(" + translateX + "px)";
+      }, 2000);
+    });
+  });
+</script>
+
+</html>

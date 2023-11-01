@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>苏惠萍医生</title>
+  <link href="./css/main.css" rel="stylesheet">
+  <style>
+    html, body {
+      padding: 0;
+    }
+    /* 医生介绍 */
+    .doctor-wrapper {
+      margin: 12px 12px 10px 12px;
+      width: calc(100vw - 24px);
+      box-sizing: border-box;
+    }
+
+    .doctor-wrapper .doctor-item {
+      position: relative;
+      display: flex;
+      width: 100%;
+      background: linear-gradient(0deg, #FFFFFF, #E4FDFF);
+      border-radius: 5px;
+      padding: 14px 0;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-left {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 30%;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-left .doctor-photo {
+      width: 62.5%;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-left .doctor-name {
+      font-weight: bold;
+      font-size: 18px;
+      color: #343333;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-left .visit-time {
+      font-size: 13px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-right {
+      position: relative;
+      width: 70%;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-right::before {
+      content: '';
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #CAFCF1;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-right p {
+      line-height: 28px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-right p label {
+      color: #48C3A6;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .doctor-wrapper .doctor-item .doctor-arrow {
+      position: absolute;
+      width: 7px;
+      height: 12px;
+      top: 50%;
+      margin-top: -6px;
+      right: 12px;
+    }
+
+    .intro-wrapper {
+      padding-top: 12px;
+      margin: 0 12px 12px 12px;
+      width: calc(100% - 24px);
+      background-color: #fff;
+    }
+    .intro-wrapper .intro-title {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 12px;
+      line-height: 16px;
+      font-size: 14px;
+      color: #4AC2A7;
+    }
+
+    .intro-wrapper .intro-title::before {
+      content: '';
+      position: absolute;
+      left: 13px;
+      top: 2px;
+      width: 3px;
+      height: 12px;
+      background-color: #4AC2A7;
+    }
+
+    .intro-wrapper .intro-content {
+      padding: 0 12px;
+      margin-bottom: 20px;
+      line-height: 24px;
+      color: #343333;
+    }
+
+    .intro-fold-wrapper {
+      display: flex;
+      justify-content: center;
+      color: #A4A4A4;
+      align-items: center;
+      padding-bottom: 16px;
+    }
+
+    .intro-fold-wrapper .arrow {
+      transition: all .35s;
+      width: 12px;
+      height: 12px;
+      margin-left: 6px;
+    }
+
+    .intro-fold-wrapper .arrow.top {
+      transform: rotate(180deg);
+    }
+
+    .reservation-wrapper {
+      padding: 12px;
+      margin: 0 12px 12px 12px;
+      width: calc(100% - 24px);
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+    .reservation-wrapper .reservation-item {
+      display: flex;
+      align-items: center;
+    }
+    .reservation-wrapper .reservation-item-left {
+      width: 80%;
+    }
+    .reservation-wrapper .reservation-item-left .reservation-item-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .reservation-wrapper .reservation-item-left .reservation-item-content {
+      font-size: 12px;
+      line-height: 20px;
+    }
+    .reservation-wrapper .reservation-item-left .reservation-item-content label {
+      color: #4AC2A7;
+      font-weight: bold;
+    }
+    .reservation-wrapper .reservation-item-right {
+      width: 20%;
+      text-align: right;
+    }
+    .reservation-wrapper .reservation-item-right .reservation-item-btn {
+      display: inline-block;
+      width: 100%;
+      height: 25px;
+      max-width: 56px;
+      border-radius: 15px;
+      background-color: #4AC2A7;
+      color: #fff;
+      font-size: 12px;
+      text-align: center;
+      line-height: 25px;
+      letter-spacing: 180;
+    }
+
+    .reservation-wrapper .reservation-item + .reservation-item {
+      border-top: 1px solid #4AC2A7;
+      margin-top: 16px;
+      padding-top: 16px;
+    }
+
+    .assess-wrapper {
+      padding: 12px 12px 0 12px;
+      margin: 0 12px 20px 12px;
+      width: calc(100% - 24px);
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+    .assess-wrapper-title {
+      padding: 0 12px 12px 0;
+      margin-bottom: 18px;
+      font-size: 16px;
+      color: #4AC2A7;
+      border-bottom: 1px solid #4AC2A7;
+    }
+    .assess-wrapper .assess-item {
+      padding-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .assess-wrapper .assess-item .assess-item-title {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 13px;
+      margin-bottom: 10px;
+      color: #4AC2A7;
+    } 
+
+    .assess-wrapper .assess-item .assess-item-content {
+      line-height: 21px;
+    }
+
+    .assess-wrapper .assess-item + .assess-item {
+      padding-top: 24px;
+      border-top: 1px solid #4AC2A7;
+    }
+
+    footer img {
+      width: 100%;
+    }
+    footer p {
+      background-color: #FAF6F3;
+      font-size: 12px;
+      color: #A4A4A4;
+      text-align: center;
+      line-height: 24px;
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 医生基本信息 -->
+  <section class="doctor-wrapper">
+    <div class="doctor-item" onclick="openDoctor()">
+      <div class="doctor-left">
+        <img class="doctor-photo" alt="" src="./image/photo.jpeg">
+        <p class="doctor-name">苏惠萍</p>
+      </div>
+      <div class="doctor-right">
+        <p>
+          <label>职称:</label><span>主任医师（教授）</span>
+        </p>
+        <p>
+          <label>出诊:</label><span>北京西鹤年堂中医医院</span>
+        </p>
+        <p>
+          <label>地点:</label><span>北京</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 医生介绍 -->
+  <section class="intro-wrapper">
+    <p class="intro-title">医生介绍</p>
+    <p class="intro-content">北京中医药大学东直门医院原呼吸科主任、国际部主任、健康管理中心主任，国家中医药管理局重点学科东直门医院“中医肺病学”学科带头人。现任中国中医药信息学会膏方分会会长，中华中医药学会健康管理分会副主任委员，世中联中医治未病专业委员会副会长，中华中医药学会肺系病分会常务委员，中华中医药学会科普专家等。</p>
+    <p class="intro-fold-wrapper" onclick="foldFn()"><span class="fold-text">展开</span><img class="arrow" alt="" src="./image/arrow_down.png"></p>
+  </section>
+
+  <!-- 预约 -->
+  <section class="reservation-wrapper">
+    <div class="reservation-item" onclick="reservationFn()">
+      <div class="reservation-item-left">
+        <p class="reservation-item-title">2023年10月18日 周三 上午</p>
+        <p class="reservation-item-content">
+          <label>挂号费:</label>
+          <span>100元</span>
+        </p>
+        <p class="reservation-item-content">
+          <label>注意事项:</label>
+          <span>13:30开诊，请在15:30前到院候诊</span>
+        </p>
+      </div>
+      <div class="reservation-item-right">
+        <span class="reservation-item-btn">预约</span>
+      </div>
+    </div>
+
+
+    <div class="reservation-item" onclick="reservationFn()">
+      <div class="reservation-item-left">
+        <p class="reservation-item-title">2023年10月18日 周三 上午</p>
+        <p class="reservation-item-content">
+          <label>挂号费:</label>
+          <span>100元</span>
+        </p>
+        <p class="reservation-item-content">
+          <label>注意事项:</label>
+          <span>13:30开诊，请在15:30前到院候诊</span>
+        </p>
+      </div>
+      <div class="reservation-item-right">
+        <span class="reservation-item-btn">预约</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 评价 -->
+  <section class="assess-wrapper">
+    <div class="assess-wrapper-title">患者诊后评价</div>
+
+    <div class="assess-item">
+      <p class="assess-item-title"><span class="assess-item-user">王汇丰</span><span class="assess-item-time">2023-10-29</span></p>
+      <p class="assess-item-content">苏主任每次看病，都是细致入微，待人和气，不厌其烦地为病人着想，她的医术精湛，解决了我们心里的很多疑问，为苏主任点赞。</p>
+    </div>
+
+    <div class="assess-item">
+      <p class="assess-item-title"><span class="assess-item-user">王汇丰</span><span class="assess-item-time">2023-10-29</span></p>
+      <p class="assess-item-content">苏主任每次看病，都是细致入微，待人和气，不厌其烦地为病人着想，她的医术精湛，解决了我们心里的很多疑问，为苏主任点赞。</p>
+    </div>
+  </section>
+
+  <footer>
+    <img alt="" src="./image/banner.png">
+    <p>技术支持</p>
+  </footer>
+
+<script type="text/javascript">
+  window.onload = function() {
+    
+  }
+  function reservationFn(item) {
+    alert('跳转')
+  }
+  function foldFn() {
+    var fold_text = document.querySelector('.fold-text')
+    console.log(fold_text.parentNode.lastChild)
+    if (fold_text.innerText === '展开') {
+      console.log('展开')
+      fold_text.innerText = '折叠'
+      fold_text.parentNode.lastChild.classList.add('top')
+    } else {
+      fold_text.innerText = '展开'
+      fold_text.parentNode.lastChild.classList.remove('top')
+    }
+  }
+</script>
+</body>
+</html>
