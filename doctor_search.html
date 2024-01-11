@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>北京西鹤年堂中医医院</title>
+  <link href="./css/main.css" rel="stylesheet">
+  <link href="./css/doctor_search.css" rel="stylesheet">
+	<style>.discribe-wrapper marquee {
+
+		overflow-y: auto;
+		-webkit-overflow-scrolling : touch;
+}
+#marquee {
+            display: block;
+
+            height: 30px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        #marquee_text {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            line-height: 30px;
+            display: block;
+            word-break: keep-all;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+</style>
+</head>
+
+<body>
+  <!-- 科室区域 -->
+  <section class="dept-wrapper">
+    <ul class="dept-con">
+      <li class="dept-item active">
+        中医消化
+      </li>
+      <li class="dept-item">
+        中医皮肤
+      </li>
+      <li class="dept-item">
+        中医针灸
+      </li>
+      <li class="dept-item">
+        中医消化
+      </li>
+      <li class="dept-item">
+        中医皮肤
+      </li>
+      <li class="dept-item">
+        中医针灸
+      </li>
+      <li class="dept-item">
+        中医消化
+      </li>
+      <li class="dept-item">
+        中医皮肤
+      </li>
+      <li class="dept-item">
+        中医针灸
+      </li>
+    </ul>
+    <p class="fold-wrapper"><span class="fold-text">展开</span><img class="arrow" alt="" src="./image/arrow_down.png"></p>
+  </section>
+
+  <!-- 时间区域 -->
+  <section class="dept-wrapper">
+    <ul class="dept-con">
+      <li class="dept-item active">
+        周一
+      </li>
+      <li class="dept-item">
+        周二
+      </li>
+      <li class="dept-item">
+        周三
+      </li>
+      <li class="dept-item">
+        周四
+      </li>
+      <li class="dept-item">
+        周五
+      </li>
+      <li class="dept-item">
+        周六
+      </li>
+      <li class="dept-item">
+        周日
+      </li>
+    </ul>
+    <p class="fold-wrapper"><span class="fold-text">展开</span><img class="arrow" alt="" src="./image/arrow_down.png"></p>
+  </section>
+
+  <!-- 搜索区域 -->
+  <div class="ipt-search">
+    <input id="searchIpt" placeholder="输入症状或医师名字搜索">
+  </div>
+
+  <!--  -->
+    <span id="marquee_text">字幕会滚动啦字幕会滚动啦~</span>
+  <section class="discribe-wrapper"  id="marquee">
+    <img alt="" src="./image/banner.png">
+    <!-- scrollamount="1" -->
+    <!-- <marquee  id="marquee_text" scrollamount="10">病例本、社保卡、医保卡、身份证、发票、病例、处方单、缴费单、单据</marquee>     -->
+	<span id="marquee_text">病例本、社保卡、医保卡、身份证、发票、病例、处方单、缴费单、单据~</span>
+  </section>
+
+  <!-- 医生介绍 -->
+  <section class="doctor-wrapper">
+    <a class="doctor-item" onclick="openDoctor()">
+      <div class="doctor-left">
+        <img class="doctor-photo" alt="" src="./image/photo.jpeg">
+        <p class="doctor-name">苏惠萍</p>
+        <span class="visit-time">星期三</span>
+      </div>
+      <div class="doctor-right">
+        <p>
+          <label>职称:</label><span>主任医师（教授）</span>
+        </p>
+        <p>
+          <label>出诊:</label><span>北京西鹤年堂中医医院</span>
+        </p>
+        <p>
+          <label>地点:</label><span>北京</span>
+        </p>
+        <p>
+          <label>擅长:</label><span>临床主治内科疾病尤以肺部质纤维化、哮喘、慢阻肺、肺结节、慢性咳嗽等呼吸疾病见长</span>
+        </p>
+      </div>
+      <img class="doctor-arrow" alt="" src="./image/second_arrow_right.png">
+    </a>
+
+    <a class="doctor-item" onclick="openDoctor()">
+      <div class="doctor-left">
+        <img class="doctor-photo" alt="" src="./image/photo.jpeg">
+        <p class="doctor-name">苏惠萍</p>
+        <span class="visit-time">星期三</span>
+      </div>
+      <div class="doctor-right">
+        <p>
+          <label>职称:</label><span>主任医师（教授）</span>
+        </p>
+        <p>
+          <label>出诊:</label><span>北京西鹤年堂中医医院</span>
+        </p>
+        <p>
+          <label>地点:</label><span>北京</span>
+        </p>
+        <p>
+          <label>擅长:</label><span>临床主治内科疾病尤以肺部质纤维化、哮喘、慢阻肺、肺结节、慢性咳嗽等呼吸疾病见长</span>
+        </p>
+      </div>
+      <img class="doctor-arrow" alt="" src="./image/second_arrow_right.png">
+    </a>
+  </section>
+
+  <footer>
+    <img alt="" src="./image/banner.png">
+    <p>技术支持</p>
+  </footer>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="./js/doctor_search.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+marquee("marquee", "marquee_text");}
+    function marquee(p, s) {
+        var scrollWidth = document.getElementById(p).offsetWidth;
+        var textWidth = document.getElementById(s).offsetWidth;
+        var i = scrollWidth;
+        console.log(scrollWidth, textWidth);
+        function change() {
+            i--;
+            if (i < -textWidth) {
+                i = scrollWidth;
+            }
+            document.getElementById(s).style.left = i + "px";
+            window.requestAnimationFrame(change);
+        }
+        window.requestAnimationFrame(change);
+    }
+</script>
+
+</html>
