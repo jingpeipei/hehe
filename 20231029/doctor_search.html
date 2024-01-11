@@ -16,6 +16,32 @@
   <title>北京西鹤年堂中医医院</title>
   <link href="./css/main.css" rel="stylesheet">
   <link href="./css/doctor_search.css" rel="stylesheet">
+	<style>.discribe-wrapper marquee {
+
+		overflow-y: auto;
+		-webkit-overflow-scrolling : touch;
+}
+#marquee {
+            display: block;
+
+            height: 30px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        #marquee_text {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            line-height: 30px;
+            display: block;
+            word-break: keep-all;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+</style>
 </head>
 
 <body>
@@ -87,10 +113,12 @@
   </div>
 
   <!--  -->
-  <section class="discribe-wrapper">
+    <span id="marquee_text">字幕会滚动啦字幕会滚动啦~</span>
+  <section class="discribe-wrapper"  id="marquee">
     <img alt="" src="./image/banner.png">
     <!-- scrollamount="1" -->
-    <marquee scrollamount="10">病例本、社保卡、医保卡、身份证、发票、病例、处方单、缴费单、单据</marquee>
+    <!-- <marquee  id="marquee_text" scrollamount="10">病例本、社保卡、医保卡、身份证、发票、病例、处方单、缴费单、单据</marquee>     -->
+	<span id="marquee_text">病例本、社保卡、医保卡、身份证、发票、病例、处方单、缴费单、单据~</span>
   </section>
 
   <!-- 医生介绍 -->
@@ -149,5 +177,24 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="./js/doctor_search.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+marquee("marquee", "marquee_text");}
+    function marquee(p, s) {
+        var scrollWidth = document.getElementById(p).offsetWidth;
+        var textWidth = document.getElementById(s).offsetWidth;
+        var i = scrollWidth;
+        console.log(scrollWidth, textWidth);
+        function change() {
+            i--;
+            if (i < -textWidth) {
+                i = scrollWidth;
+            }
+            document.getElementById(s).style.left = i + "px";
+            window.requestAnimationFrame(change);
+        }
+        window.requestAnimationFrame(change);
+    }
+</script>
 
 </html>
